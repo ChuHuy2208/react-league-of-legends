@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .nav-link {
   text-decoration: none;
   color: white;
@@ -12,6 +17,9 @@
   height: 80px;
   display: flex;
   align-items: center;
+  @media (max-width: 900px) {
+    display: none
+  }
 }
 
 .nav-link:hover {
@@ -51,4 +59,200 @@
   align-items: center;
   gap: 16px;
   margin-left: 20px;
+}
+
+.MuiBox-root video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.overlay-02 {
+  background-color: rgb(10, 20, 40);
+  opacity: 0.2;
+}
+
+.overlay-01 {
+  background: linear-gradient(to top, rgb(10, 20, 40) 0%, transparent 100%) center bottom / 100% 50% no-repeat;
+}
+
+.section-1-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  flex-grow: 1;
+  gap: 32px;
+  max-width: calc(1920px - (3 * 320px));
+  width: 100%;
+  padding: 0 32px 0 32px;
+}
+
+.top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.Lol-logo-to-trangchu {
+  display: none;
+  @media (min-width: 900px) {
+    display: block;
+  }
+}
+
+.league-of-legends-to-trangchu {
+  display: block;
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.menu-nav-links {
+  color: white;
+  padding: 7px 0 0;
+  text-transform: uppercase;
+}
+
+.menu-typography-link {
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+.menu-typography-link:first-child {
+  margin: 8px 16px;
+}
+
+.menu-link-with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-nav-link:hover {
+  > .menu-typography-link {
+    background-color: #8080804d;
+    color: #c8aa6e;
+  }
+}
+
+.news-items {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  scrollbar-width: thin; 
+  scrollbar-color: #888 transparent; 
+  scrollbar-height: 8px; 
+  scroollbar-width: 8px;
+  scrollbar-thumb-hover-color: #555;
+}
+
+.news-item {
+  max-width: 480px;
+  width: 100%;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.image-wrapper {
+  overflow: hidden; 
+  position: relative;
+  width: 100%; /* Chiều rộng đầy đủ */
+  aspect-ratio: 16 / 9; /* Tỷ lệ khung hình, điều chỉnh theo ảnh của bạn (ví dụ: 1 / 1 cho vuông, 4 / 3, v.v.) */
+}
+
+.image-wrapper img {
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+  width: 100%; /* Đầy khung */
+  height: 100%; /* Đầy khung */
+  object-fit: cover; /* Ảnh bao phủ khung mà không méo */
+  transition: transform 0.3s ease; /* Hiệu ứng mượt mà */
+}
+
+.news-item:hover img {
+  transform: scale(1.1); /* Zoom lên 10%, điều chỉnh nếu cần */
+}
+
+.link-square {
+  display: inline-block;
+  background-image: url('https://www.leagueoflegends.com/_next/static/node_modules/@riot-private/blades-ui/dist/skins/common/assets/link-square.svg');
+  width: 39px;
+  height: 39px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.play-video-button {
+  background-image: url('https://www.leagueoflegends.com/_next/static/node_modules/@riot-private/blades-ui/dist/skins/common/assets/player-square.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 39px;
+  height: 39px;
+}
+
+.news-card {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.card-category {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #c8aa6e;
+}
+
+.straight {
+  width: 1px;
+  height: 13px;
+  background-color: #cccccc;
+  margin: 0 8px;
+}
+
+.card-title {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: rgb(10, 20, 40);
+}
+
+.card-desc {
+  font-size: 16px;
+  color: #081428;
 }
