@@ -9,6 +9,8 @@ import LanguageIcon from '@mui/icons-material/Language'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
+import MenuDrawer from '~/components/MenuDrawer'
+
 
 function Header() {
 
@@ -71,9 +73,9 @@ function Header() {
         overflowY: 'hidden'
       }}
     >
-      <TopDrawer />
+        <TopDrawer />
 
-      <Box sx={{ display: 'flex', flex: 1 }}>
+      <Box sx={{ flex: 1 }}>
         <NavLinks />
       </Box>
 
@@ -86,53 +88,55 @@ function Header() {
           gap: 2
         }}
       >
-        <Box
-          sx={{
-            p: 0.5,
-            bgcolor: '#2b2a29',
-            borderRadius: '10px',
-            display: isOpen ? 'none' : 'block'
-          }}
-        >
-          <SearchIcon
-            sx={{ color: 'white', cursor: 'pointer' }}
-            onClick={() => setIsOpen(true)}
-          />
-        </Box>
-        {/* Chỉ hiện search khi nhận thuộc tính isOpen */}
-        {isOpen && (
-          <Box 
+        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box
             sx={{
-              display: 'flex',
-              color: 'white',
-              alignItems: 'center',
+              p: 0.5,
               bgcolor: '#2b2a29',
-              px: 1,
-              py: 0.5,
-              borderRadius: '10px'
+              borderRadius: '10px',
+              display: isOpen ? 'none' : 'block'
             }}
           >
-            <SearchIcon sx={{ color: 'white' }} />
-            <TextField 
-              id="input-with-sx"
-              variant="standard"
-              sx={{
-                color: 'white',
-                '& input': { color: 'white' },
-                '& .MuiInput-root::after': { display: 'none' },
-                '& .MuiInput-root::before': { display: 'none' },
-                '&:hover .MuiInput-root::before': { display: 'none' },
-                ml: 2
-              }}
-              onChange={(e) => setsearchValue(e.target.value)}
-              value={searchValue}
-            />
-            <CloseIcon
+            <SearchIcon
               sx={{ color: 'white', cursor: 'pointer' }}
-              onClick={closeSearch}
+              onClick={() => setIsOpen(true)}
             />
           </Box>
-        )}
+          {/* Chỉ hiện search khi nhận thuộc tính isOpen */}
+          {isOpen && (
+            <Box 
+              sx={{
+                display: 'flex',
+                color: 'white',
+                alignItems: 'center',
+                bgcolor: '#2b2a29',
+                px: 1,
+                py: 0.5,
+                borderRadius: '10px'
+              }}
+            >
+              <SearchIcon sx={{ color: 'white' }} />
+              <TextField 
+                id="input-with-sx"
+                variant="standard"
+                sx={{
+                  color: 'white',
+                  '& input': { color: 'white' },
+                  '& .MuiInput-root::after': { display: 'none' },
+                  '& .MuiInput-root::before': { display: 'none' },
+                  '&:hover .MuiInput-root::before': { display: 'none' },
+                  ml: 2
+                }}
+                onChange={(e) => setsearchValue(e.target.value)}
+                value={searchValue}
+              />
+              <CloseIcon
+                sx={{ color: 'white', cursor: 'pointer' }}
+                onClick={closeSearch}
+              />
+            </Box>
+          )}
+        </Box>
 
         <Box
           aria-controls={open ? 'long-menu' : undefined}
@@ -163,7 +167,7 @@ function Header() {
           ))}
         </Menu>
 
-        <Box>
+        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <Button
             variant="contained"
             sx={{
@@ -180,6 +184,9 @@ function Header() {
           >
             Chơi ngay
           </Button>
+        </Box>
+        <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+          <MenuDrawer />
         </Box>
       </Box>
 

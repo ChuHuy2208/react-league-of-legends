@@ -5,13 +5,19 @@ import LolLogo from '~/assets/lol-logo.svg?react'
 import { NavLink } from 'react-router-dom'
 import '~/App.css'
 import Box from "@mui/material/Box"
+import LeagueOfLegends from '~/assets/league-of-legends.svg?react'
 
 function NavLinks() {
 
   return (
     <>
       <nav className="nav-links">
-        <NavLink to="/">
+        <NavLink to="/" className="league-of-legends-to-trangchu">
+          <LeagueOfLegends />
+        </NavLink> {" "}
+      </nav>
+      <nav className="nav-links">
+        <NavLink to="/" className="Lol-logo-to-trangchu">
           <LolLogo />
         </NavLink> {" "}
         <NavLink to="/tro-choi" className="nav-link">
@@ -35,7 +41,7 @@ function NavLinks() {
         </NavLink> {" "}
         <NavLink to="/chi-tiet-cap-nhat" className="nav-link">
           <Typography className="typography-link" sx={{ fontWeight: 'bold', fontSize: '13px' }}>
-            Chi tiét cập nhật
+            Chi tiết cập nhật
           </Typography>
           <Box className="link-item-underline"></Box>
         </NavLink> {" "}
