@@ -159,11 +159,6 @@ a {
   overflow-x: auto;
   padding-bottom: 16px;
   justify-content: space-between;
-  scrollbar-width: thin; 
-  scrollbar-color: #888 transparent; 
-  scrollbar-height: 8px; 
-  scroollbar-width: 8px;
-  scrollbar-thumb-hover-color: #555;
 }
 
 .news-item {
@@ -255,4 +250,36 @@ a {
 .card-desc {
   font-size: 16px;
   color: #081428;
+}
+
+.icon {
+  opacity: 0.5;
+}
+
+.icon-desc {
+  opacity: 0.5;
+  font-size: 14px !important;
+}
+
+.icon-choose {
+  > .icon {
+    opacity: 1 !important;
+  }
+  > .icon-desc {
+    opacity: 1 !important;
+  }
+}
+
+.icon-select {
+  transition: 0.2s ease-in-out;
+}
+
+.icon-select:hover {
+  transform: scale(1.1);
+  > .icon {
+    opacity: 1;
+  }
+  > .icon-desc {
+    opacity: 1;
+  }
 }
